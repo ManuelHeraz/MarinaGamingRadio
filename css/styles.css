@@ -7,7 +7,7 @@ body {
     color: #ffffff;
 }
 
-.title{
+.title {
     margin-top: 180px;
     display: block;
     text-align: center;
@@ -22,16 +22,19 @@ body {
     width: 80%;
     margin: 20px auto;
 }
+
 .reproductor {
     position: relative;
     flex: 3;
     text-align: center;
     padding: 5%;
 }
+
 .reproductor iframe {
     padding-top: 10%;
     border: none;
 }
+
 .reproductor button {
     margin-top: 10px;
     padding: 10px 20px;
@@ -43,50 +46,72 @@ body {
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
+
 .reproductor button:hover {
     background-color: #c6e3ff;
 }
+
+/* Mejoras en el Slider */
 .slider {
     position: absolute;
-    display: flex;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
     overflow: hidden;
-    animation: slide 35s linear infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .slider img {
-    position: relative;
-    min-width: 100%;
-    height: 120%;
+    position: absolute;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    animation: slide 20s infinite alternate;
+    opacity: 0;
+    animation: fadeInOut 35s infinite;
+    transition: opacity 2s ease-in-out;
 }
-@keyframes slide {
+
+/* Animación de Fade In/Out para el slider */
+@keyframes fadeInOut {
     0% {
-        transform: translateX(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 1;
+    }
+    35% {
+        opacity: 0;
     }
     100% {
-        transform: translateX(-100%);
+        opacity: 0;
     }
 }
 
-.slider {
-    animation: slider-loop 35s linear infinite; /* La duración del loop depende de la cantidad de imágenes */
+/* Degradado suave para evitar cambios bruscos */
+.slider::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    z-index: 1;
 }
 
-@keyframes slider-loop {
-    0% {
-        margin-left: 0;
-}
-}
 .publicity {
     flex: 1;
     text-align: center;
     margin-left: 20px;
 }
+
 .publicity img {
     width: 100%;
     max-width: 300px;
@@ -95,9 +120,11 @@ body {
     border-radius: 10px;
     transition: transform 0.3s ease;
 }
+
 .publicity img:hover {
     transform: scale(1.1);
 }
+
 .visualizer {
     display: flex;
     justify-content: space-between;
@@ -159,7 +186,7 @@ h1 {
     margin-bottom: 15px;
 }
 
-.panel-info img:hover{
+.panel-info img:hover {
     background: #444444;
 }
 
@@ -186,7 +213,7 @@ h1 {
     color: #ffffff;
 }
 
-.panel-info ul{
+.panel-info ul {
     text-align: justify;
 }
 
@@ -235,7 +262,7 @@ h1 {
     margin-bottom: 10px;
 }
 
-.imagen{
+.imagen {
     right: 5%;
     width: 15%;
     padding: 3%;
@@ -247,7 +274,6 @@ h1 {
     max-width: 100%;
     border-radius: 5px;
     margin: 10px 0;
-    
 }
 
 .section p {
@@ -257,7 +283,6 @@ h1 {
 .section a {
     color: #b3b3b3;
 }
-
 
 @media (max-width: 768px) {
     .main-content {
